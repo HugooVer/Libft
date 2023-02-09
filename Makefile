@@ -12,6 +12,9 @@ RM = rm -f
 
 INCLUDE = includes
 
+
+## libft ##
+
 SRCS += ft_atoi.c
 SRCS += ft_bzero.c
 SRCS += ft_calloc.c
@@ -56,7 +59,22 @@ SRCS += ft_lstmap.c
 SRCS += ft_lstnew.c
 SRCS += ft_lstsize.c
 
-SRCS_PATH = srcs/
+
+## ft_printf ##
+
+SRCS += ft_printf.c
+SRCS += ft_printc.c
+SRCS += ft_printdi.c
+SRCS += ft_printp.c
+SRCS += ft_prints.c
+SRCS += ft_printu.c
+SRCS += ft_printx.c
+SRCS += ft_printX.c
+
+SRCS_PATH += srcs/
+SRCS_PATH += srcs/libft/
+SRCS_PATH += srcs/ft_printf/
+
 vpath %.c ${SRCS_PATH}
 
 OBJS_PATH = objs
