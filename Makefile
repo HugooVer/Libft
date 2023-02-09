@@ -1,9 +1,16 @@
-CC = cc
-CFLAGS += -Wall 
-CFLAGS += -Wextra 
+
+NAME = libft.a
+
+CC = clang
+CFLAGS += -Wall
+CFLAGS += -Wextra
 CFLAGS += -Werror
+
 AR = ar rc
+
 RM = rm -f
+
+INCLUDE = includes
 
 SRCS += ft_atoi.c
 SRCS += ft_bzero.c
@@ -39,40 +46,37 @@ SRCS += ft_strtrim.c
 SRCS += ft_substr.c
 SRCS += ft_tolower.c
 SRCS += ft_toupper.c
+SRCS += ft_lstadd_back.c
+SRCS += ft_lstadd_front.c
+SRCS += ft_lstclear.c
+SRCS += ft_lstdelone.c
+SRCS += ft_lstiter.c
+SRCS += ft_lstlast.c
+SRCS += ft_lstmap.c
+SRCS += ft_lstnew.c
+SRCS += ft_lstsize.c
 
-BONUS_SRCS += ft_lstadd_back.c
-BONUS_SRCS += ft_lstadd_front.c
-BONUS_SRCS += ft_lstclear.c
-BONUS_SRCS += ft_lstdelone.c
-BONUS_SRCS += ft_lstiter.c
-BONUS_SRCS += ft_lstlast.c
-BONUS_SRCS += ft_lstmap.c
-BONUS_SRCS += ft_lstnew.c
-BONUS_SRCS += ft_lstsize.c
+SRCS_PATH = srcs/
+vpath %.c ${SRCS_PATH}
 
-OBJS = ${SRCS:.c=.o}
-
-BONUS_OBJS = ${BONUS_SRCS:.c=.o}
-
-NAME = libft.a
+OBJS_PATH = objs
+OBJS = ${patsubst %.c, ${OBJS_PATH}/%.o, ${SRCS}}
 
 ${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
 
 all: ${NAME}
 
-%.o: %.c
-	${CC} ${CFLAGS} -c $^ -o $@
-
-bonus: ${OBJS} ${BONUS_OBJS}
-	${AR} ${NAME} ${OBJS} ${BONUS_OBJS}
+${OBJS_PATH}/%.o: %.c
+	mkdir -p ${OBJS_PATH}
+	${CC} ${CFLAGS} -c $^ -o $@ -I ${INCLUDE}
 
 clean:
-	${RM} ${OBJS} ${BONUS_OBJS} 
+	${RM} -r ${OBJS_PATH}
 
 fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
