@@ -25,6 +25,7 @@ SRCS += ft_isdigit.c
 SRCS += ft_isprint.c
 SRCS += ft_itoa.c
 SRCS += ft_memchr.c
+SRCS += ft_memchri.c
 SRCS += ft_memcmp.c
 SRCS += ft_memcpy.c
 SRCS += ft_memset.c
@@ -38,6 +39,7 @@ SRCS += ft_strchr.c
 SRCS += ft_strdup.c
 SRCS += ft_striteri.c
 SRCS += ft_strjoin.c
+SRCS += ft_strnjoin.c
 SRCS += ft_strlcat.c
 SRCS += ft_strlcpy.c
 SRCS += ft_strlen.c
@@ -71,9 +73,15 @@ SRCS += ft_printu.c
 SRCS += ft_printx.c
 SRCS += ft_printX.c
 
+
+## get_next_line ##
+
+SRCS += get_next_line.c
+
 SRCS_PATH += srcs/
 SRCS_PATH += srcs/libft/
 SRCS_PATH += srcs/ft_printf/
+SRCS_PATH += srcs/get_next_line/
 
 vpath %.c ${SRCS_PATH}
 
