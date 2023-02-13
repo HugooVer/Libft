@@ -8,10 +8,6 @@ CFLAGS += -Werror
 
 AR = ar rc
 
-RM = rm -f
-
-INCLUDE = includes
-
 
 ## libft ##
 
@@ -78,15 +74,23 @@ SRCS += ft_printX.c
 
 SRCS += get_next_line.c
 
+
+## paths ##
+
 SRCS_PATH += srcs/
 SRCS_PATH += srcs/libft/
 SRCS_PATH += srcs/ft_printf/
 SRCS_PATH += srcs/get_next_line/
 
+INCLUDE = includes
+
+
 vpath %.c ${SRCS_PATH}
+
 
 OBJS_PATH = objs
 OBJS = ${patsubst %.c, ${OBJS_PATH}/%.o, ${SRCS}}
+
 
 ${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
