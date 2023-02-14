@@ -84,19 +84,24 @@ SRCS_PATH += srcs/get_next_line/
 
 INCLUDE = -I includes
 
+HEADERS += libft.h
+HEADERS += ft_printf.h
+HEADERS += get_next_line.h
+
 vpath %.c ${SRCS_PATH}
+
+vpath %.h ${INCLUDE}
 
 
 OBJS_PATH = objs
 OBJS = ${patsubst %.c, ${OBJS_PATH}/%.o, ${SRCS}}
 
+all: ${NAME}
 
 ${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
 
-all: ${NAME}
-
-${OBJS}: ${OBJS_PATH}/%.o: %.c ${HEADERS}
+${OBJS}: ${OBJS_PATH}/%.o: %.c ${HEADERS} Makefile
 	mkdir -p ${OBJS_PATH}
 	${CC} ${CFLAGS} -c $^ -o $@ ${INCLUDE}
 
