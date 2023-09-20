@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 22:20:19 by hvercell          #+#    #+#             */
-/*   Updated: 2022/12/09 21:11:22 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:56:27 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
+
+
